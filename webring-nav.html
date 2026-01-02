@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .webring-nav {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+
+        .webring-link {
+            background: #FF6B6B;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .webring-link:hover {
+            transform: scale(1.1);
+            background: #FF5252;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="webring-nav">
+        <a href="/api/previous" class="webring-link">← Previous Stand</a>
+        <a href="/api/random" class="webring-link">Random Stand</a>
+        <a href="/api/next" class="webring-link">Next Stand →</a>
+    </div>
+</body>
+
+</html>
