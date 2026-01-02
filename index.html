@@ -116,9 +116,9 @@
             left: 50%;
             transform: translate(-50%, -50%);
             margin: 0;
-            z-index: 4;
+            z-index: 10;
             padding: 20px 40px;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0);
             border: 3px solid #00ff00;
             border-radius: 20px;
             box-shadow: 0 0 20px #00ff00, inset 0 0 20px rgba(0, 255, 0, 0.2);
@@ -133,8 +133,8 @@
         }
 
         .neon-sign:nth-of-type(2) {
-            left: 106.7%;
-            top: 90%;
+            left: 88%;
+            top: 100%;
             transform: translate(-50%, -50%) rotate(15deg);
         }
 
@@ -149,7 +149,7 @@
         }
 
         .neon-spinner:first-of-type {
-            right: 11%;
+            right: 11.2%;
             top: 38.4%;
             transform: translate(-50%, -50%);
         }
@@ -235,27 +235,38 @@
         <div class="webring-nav">
             <a href="/api/previous" class="webring-link">← Previous Stand</a>
             <a href="/api/random" class="webring-link">Random Stand</a>
-            <a href="https://github.com/andrewpetrucci/LemonadeStandAnarcyWebRing" class="webring-link">GitHub</a>
             <a href="/api/next" class="webring-link">Next Stand →</a>
         </div>
         <p>🍋 Powered by pure sugar, water, and rebellion 🍋</p>
         <p>Part of the decentralized web revolution</p>
         <p>By the stans, for the stans</p>
+        <p><a href="https://github.com/andrewpetrucci/LemonadeStandAnarcyWebRing" class="webring-link">GitHub</a></p>
     </footer>
 
     <script>
         // Hide spinners on clicks
         const spinners = document.querySelectorAll('.neon-spinner');
         const videoFrame = document.querySelector('.youtube-playlist');
+        const neonSigns = document.querySelectorAll('.neon-sign');
 
         console.log('Found spinners:', spinners.length);
         console.log('Found video frame:', videoFrame);
+        console.log('Found neon signs:', neonSigns.length);
 
-        // Hide spinners when hovering over video
-        videoFrame.addEventListener('mouseenter', function () {
-            console.log('Video hovered - hiding spinners');
+        // Hide spinners when hovering/touching video
+        function hideSpinnersAndSigns() {
+            console.log('Video interacted with - hiding spinners');
             spinners.forEach(spinner => spinner.style.display = 'none');
-        });
+            neonSigns.forEach(sign => sign.style.zIndex = '1');
+        }
+
+
+        // Mouse events
+        videoFrame.addEventListener('mouseenter', hideSpinnersAndSigns);
+
+        // Touch events for mobile
+        videoFrame.addEventListener('touchstart', hideSpinnersAndSigns);
+
 
     </script>
 </body>
